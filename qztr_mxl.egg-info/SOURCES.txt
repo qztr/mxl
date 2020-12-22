@@ -1,0 +1,8 @@
+README.md
+setup.py
+mxl/__init__.py
+mxl/solver.py
+qztr_mxl.egg-info/PKG-INFO
+qztr_mxl.egg-info/SOURCES.txt
+qztr_mxl.egg-info/dependency_links.txt
+qztr_mxl.egg-info/top_level.txt

@@ -1,5 +1,8 @@
  Matrix calculations
 ================
+
+Installing: pip install -i https://test.pypi.org/simple/ qztr-mxl
+
 ----------
 **В библиотеке реализованы следующие операции:**
 
@@ -13,8 +16,19 @@
 ----------
 1. **Объявить константы 0 и единичной матриц**
 
+Импортируем библиотеку, для этого имопртируем класс solver:
 
-Пример кода:
+    from mxl import solver
+	
+Метод создания статической нулевой матрицы раземерности 5х5:
 
-    print("d")
+    matrixZ = solver.mZ # нулевая матрица
+	matrix1 = solver.m1 # единичная матрица
+	
 
+Метод создания нулево матрицы размерности C,R:
+
+    matrix1 = solver.define_1matrix(C,R)
+	matrixZ = solver.define_Zmatrix(C,R)
+	
+	

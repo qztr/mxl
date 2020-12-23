@@ -14,8 +14,7 @@
 1. **Объявить константы 0 и единичной матриц**
 
 
-An example::
+
 
     print("d")
 
-no more example

@@ -1,7 +1,8 @@
  Matrix calculations
 ================
 
-Installing: pip install -i https://test.pypi.org/simple/ qztr-mxl
+Installing:
+    pip install -i https://test.pypi.org/simple/ qztr-mxl
 
 ----------
 **В библиотеке реализованы следующие операции:**
@@ -16,7 +17,7 @@ Installing: pip install -i https://test.pypi.org/simple/ qztr-mxl
 ----------
 1. **Объявить константы 0 и единичной матриц**
 
-Импортируем библиотеку, для этого имопртируем класс solver:
+Для начала имопртируем класс solver:
 
     from mxl import solver
 	

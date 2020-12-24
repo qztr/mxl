@@ -3,10 +3,6 @@
 # константы размерности
 COLS,ROWS = 5,5
 
-def set_consts(rows,cols):
-    global C,R
-    C,R = cols, rows
-
 # функция создания нулевой матрицы размерности rows,cols
 def define_Zmatrix(rows,cols):
     my_matrix = [([0]*cols) for i in range(rows)]
@@ -19,7 +15,7 @@ def define_1matrix(rows,cols):
 
 # константы нулевой и единичной матриц
 mZ = define_Zmatrix(COLS,ROWS)
-m1 = define_Zmatrix(COLS,ROWS)
+m1 = define_1matrix(COLS,ROWS)
 
 # внутрнее перемножение матриц
 def mydot(v1, v2):
@@ -90,4 +86,159 @@ def matrix_mul(A, B):
         return C
     except:
         print('Matrices are NOT the same size.')
+        
+# проверка двух матриц на равенство
+def check_matrix_equality(A, B):
+    """
+    Checks the equality of two matrices.
+        :param A: The first matrix
+        :param B: The second matrix
+        :return: The boolean result of the equality check
+    """
+    # Section 1: First ensure matrices have same dimensions
+    try:
+        if len(A) != len(B) or len(A[0]) != len(B[0]):
+            return False
+     
+        # Section 2: Check element by element equality
+        #            use tolerance if given
+        for i in range(len(A)):
+            for j in range(len(A[0])):
+                if A[i][j] != B[i][j]:
+                    return False
+        return True
+    except:
+        print("Something wrong with Matrices... enter enother ones")
+        
+
+# ========================================================
+
+def determinant(matrix, mul = 1):
+        """
+        Определитель матрицы
+        """
+    
+        
+        width = len(matrix)
+        
+        if width == 1:
+            return mul * matrix[0][0]
+        else:
+            sign = -1
+            sum = 0
+            
+            for i in range(width):
+                m = []
+                for j in range(1, width):
+                    buff = []
+                    for k in range(width):
+                        if k != i:
+                            buff.append(matrix[j][k])
+                    m.append(buff)
+                sign *= -1
+                sum += mul * determinant(m, sign * matrix[0][i])
+            
+            return sum
+            
+
+def minor(i, j, matrix):
+        """
+        Возвращает минор матрицы
+        """
+
+            
+        matrix_minor = []
+        for row in (matrix[:i]+matrix[i+1:]):
+            matrix_minor.append(row[:j] + row[j+1:]) 
+        
+        return matrix_minor
+
+def transposition(matrix):
+        """
+        Транспонирование матрицы
+        """
+        try:
+        
+            transpos_matrix = []
+            I = len(matrix)
+            J = len(matrix[0])
+            
+            for j in range(J):
+                temp = []
+                for i in range(I):
+                    temp.append(matrix[i][j])
+                transpos_matrix.append(temp)
+            
+            return transpos_matrix
+        except:
+            print("Something wrong with Matrix... enter enother one")
+
+def union_matrix(matrix):
+        """
+        Союзная матрица
+        """
+        
+        determ = determinant(matrix = matrix)
+        
+        transp_matrix = transposition(matrix)
+        
+        union = []
+        
+        for i in range(len(transp_matrix)):
+            temp = []
+            for j in range(len(transp_matrix[0])):
+                minor_determ = (-1)**(i+1 + j+1) * determinant(matrix=minor(matrix = transp_matrix, i=i, j=j))
+                temp.append(minor_determ)
+            union.append(temp)
+        
+        return union
+
+def dotAn(matrix, n):
+        """
+        Произведение матрицы на число
+        """
+        
+        if type(n) == int or type(n) == float:
+            mult = []
+            for i in matrix:
+                temp = []
+                for j in i:
+                    temp.append(round(j*n, 2))
+                mult.append(temp)
+            return mult
+
+def inverse(matrix):
+        """
+        Обратная матрица
+        """
+        try:
+            determ = determinant(matrix = matrix)
+            
+            if (determ != 0):
+                inverse_matrix = dotAn(matrix = union_matrix(matrix), n = (1/determ))
+                return inverse_matrix
+            else:
+                print("Матрица вырожденная\nОбратная для неё не существует")
+                return 0
+        except:
+            print("Something wrong with Matrix... enter enother one")
+            
+# ==============================================================================        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

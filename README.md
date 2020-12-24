@@ -178,6 +178,6 @@ Installing:
     inv = inverse(matrix)
     
     >>> inv = solver.inverse(matrix1)
+	>>> inv
     Матрица вырожденная
-    Обратная для неё не существует
->>>>>>> readme
+    Обратная для неё не существует>>>>>>> readme

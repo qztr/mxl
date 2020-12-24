@@ -27,7 +27,7 @@ Installing:
     matrixZ = solver.mZ # нулевая матрица
     matrix1 = solver.m1 # единичная матрица
     
-    > matrixZ
+    >>> matrixZ
     [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
 	
 

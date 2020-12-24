@@ -65,7 +65,7 @@ Installing:
     >>> m_mul
     [[3, 3], [3, 3]]
     
-вычисление определителя
+Вычисление определителя
 
     det = solver.determinant(matrix)
     
@@ -73,7 +73,7 @@ Installing:
     >>> det
     0
 
-сравнение на равенство
+Сравнение на равенство
 
     check = solver.check_matrix_equality(A, B)
     
@@ -81,7 +81,7 @@ Installing:
     >>> check
     True
 	
-обратная матрица
+Обратная матрица
 
     inv = inverse(matrix)
     

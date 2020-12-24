@@ -25,12 +25,34 @@ Installing:
 Метод создания статической нулевой матрицы раземерности 5х5:
 
     matrixZ = solver.mZ # нулевая матрица
-	matrix1 = solver.m1 # единичная матрица
+    matrix1 = solver.m1 # единичная матрица
 	
 
-Метод создания нулево матрицы размерности C,R:
+Метод создания нулевой матрицы размерности C,R:
 
     matrix1 = solver.define_1matrix(C,R)
-	matrixZ = solver.define_Zmatrix(C,R)
+    matrixZ = solver.define_Zmatrix(C,R)
+    
+Умножение матрицы на скаляр:
+
+    s_mul = matmulvec(M, v)
+    
+Сложение матриц одинакового размера:
+    
+    add = matrix_addition(A, B)
+    
+Умножение матриц одинакового размера:
+
+    m_mul = matrix_mul(A, B)
+    
+вычисление определителя
+
+    det = determinant(matrix)
+
+сравнение на равенство
+
+    check = check_matrix_equality(A, B)
 	
-	
+обратная матрица
+
+    inv = inverse(matrix)

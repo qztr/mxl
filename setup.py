@@ -4,11 +4,8 @@ from mxl import __version__
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-#with open("README.md", "r") as fh:
-#   long_description = fh.read()
-
 setuptools.setup(
-    name="qztr_mxl", # Replace with your own username
+    name="qztr_mxl", 
     version=__version__,
     author="qztr",
     author_email="vladiska777@gmail.com",

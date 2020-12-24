@@ -15,7 +15,7 @@ def define_1matrix(rows,cols):
 
 # константы нулевой и единичной матриц
 mZ = define_Zmatrix(COLS,ROWS)
-m1 = define_Zmatrix(COLS,ROWS)
+m1 = define_1matrix(COLS,ROWS)
 
 # внутрнее перемножение матриц
 def mydot(v1, v2):

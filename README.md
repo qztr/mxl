@@ -36,26 +36,55 @@ Installing:
     matrix1 = solver.define_1matrix(C,R)
     matrixZ = solver.define_Zmatrix(C,R)
     
+    >>> matrix1
+    [[1, 1], [1, 1]]
+    
 Умножение матрицы на скаляр:
 
-    s_mul = matmulvec(M, v)
+    s_mul = solver.matmulvec(M, v)
+    
+    >>> v = [1,2,3]
+    >>> s_mul = solver.matmulvec(matrix1, v)
+    >>> s_mul
+    [3, 3]
     
 Сложение матриц одинакового размера:
     
-    add = matrix_addition(A, B)
+    add = solver.matrix_addition(A, B)
+    
+    >>> add = solver.matrix_addition(matrix1, matrix1)
+    >>> add
+    [[2, 2], [2, 2]]
     
 Умножение матриц одинакового размера:
 
-    m_mul = matrix_mul(A, B)
+    m_mul = solver.matrix_mul(A, B)
+    
+    >>> y = [[3,3],[0,0]]
+    >>> m_mul = solver.matrix_mul(matrix1, y)
+    >>> m_mul
+    [[3, 3], [3, 3]]
     
 вычисление определителя
 
-    det = determinant(matrix)
+    det = solver.determinant(matrix)
+    
+    >>> det = solver.determinant(matrix1)
+    >>> det
+    0
 
 сравнение на равенство
 
-    check = check_matrix_equality(A, B)
+    check = solver.check_matrix_equality(A, B)
+    
+    >>> check = solver.check_matrix_equality(y, y)
+    >>> check
+    True
 	
 обратная матрица
 
     inv = inverse(matrix)
+    
+    >>> inv = solver.inverse(matrix1)
+    Матрица вырожденная
+    Обратная для неё не существует
